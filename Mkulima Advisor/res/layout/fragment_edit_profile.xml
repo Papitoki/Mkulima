@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/txtusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/farmer_username"/>
+    
+    <EditText android:id="@+id/editusername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences"/>
+    
+    <TextView 
+        android:id="@+id/txtlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/farmer_location"/>
+    
+    <Spinner android:id="@+id/editlocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/possible_location"
+        android:spinnerMode="dialog"/>
+    
+    <TextView 
+        android:id="@+id/txttoplant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/farmer_crops"/>
+    
+    <Spinner android:id="@+id/spinnercrops"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/possible_plant"
+        android:spinnerMode="dialog"/>
+    
+    <LinearLayout android:id="@+id/containerBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <Button android:id="@+id/btnSubmit"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/submit"/>
+        
+        <Button android:id="@+id/btnCancel"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/cancel"/>
+        
+    </LinearLayout>
+    
+    
+    
+    
+
+</LinearLayout>
