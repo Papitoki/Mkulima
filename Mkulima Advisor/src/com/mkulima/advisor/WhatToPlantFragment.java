@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ public class WhatToPlantFragment extends ListFragment
     public static WhatToPlantFragment newInstance(ArrayList<String> data) 
     {
     	WhatToPlantFragment fragment = new WhatToPlantFragment();
-    	
+
     	prices = data; 
     	Bundle args = new Bundle();
     	args.putStringArrayList("one", data);
@@ -33,18 +34,20 @@ public class WhatToPlantFragment extends ListFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
     {
     	View rootView = inflater.inflate(R.layout.fragment_what_to_plant, container, false);
-    	Bundle args = getArguments();
-    	System.out.println(args);
-    	//ArrayList<String> values = args.getStringArrayList("one");
+    	
+ 
+    	ArrayList<String> values = new ArrayList<String>();
+    	
     	
     	if(prices.isEmpty())
     	{
-    		prices.add("No suggestions");
+    		
     	}
-    	
+    	else{
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
     	        android.R.layout.simple_list_item_1, prices);
     	 setListAdapter(adapter);
+    	}
         return rootView;
     }
 

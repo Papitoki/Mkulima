@@ -1,6 +1,7 @@
 package com.mkulima.advisor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -146,11 +147,25 @@ public class EditProfileDialogFragment extends DialogFragment
 			
 			try 
 			{
-				JSONObject json = new JSONObject(obj);
-				json_a = json.getJSONObject("data");
+				if(obj.equals(""))
+				{
+					
+				}else
+				{
+					JSONObject json = new JSONObject(obj);
+					json_a = json.getJSONObject("data");
+				}
+				
 				
 				String data = json_a.toString();
 				ArrayList<String> array = new ArrayList<String>();
+				
+				for(int i=1; i<json_a.length(); i++)
+				{
+					//array.add(json_a.toString());
+					System.out.println(json_a.toString());
+				}
+				
 				
 				if(data.equals(""))
 				{

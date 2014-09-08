@@ -1,5 +1,7 @@
 package com.mkulima.advisor;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -41,8 +43,10 @@ public class HomeActivity extends ActionBarActivity implements NavigationDrawerF
         	break;
         	
         case 1:
+        	ArrayList<String> empty = new ArrayList<String>();
+        	empty.add("No suggestions");
         	getSupportFragmentManager().beginTransaction()
-            .replace(R.id.container, new WhatToPlantFragment())
+            .replace(R.id.container, WhatToPlantFragment.newInstance(empty))
             .commit();
         	break;
         	
