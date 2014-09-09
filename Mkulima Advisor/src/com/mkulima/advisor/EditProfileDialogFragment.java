@@ -2,6 +2,7 @@ package com.mkulima.advisor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -143,6 +144,9 @@ public class EditProfileDialogFragment extends DialogFragment
 		{
 			pDialog.dismiss();
 			
+			//Testing
+			System.out.println(obj);
+			
 			JSONObject json_a = null;
 			
 			try 
@@ -156,28 +160,17 @@ public class EditProfileDialogFragment extends DialogFragment
 					json_a = json.getJSONObject("data");
 				}
 				
-				
-				String data = json_a.toString();
 				ArrayList<String> array = new ArrayList<String>();
 				
-				for(int i=1; i<json_a.length(); i++)
-				{
-					//array.add(json_a.toString());
-					System.out.println(json_a.toString());
-				}
-				
-				
-				if(data.equals(""))
-				{
-					
-				}
-				else
-				{
-					
-					array.add(data);
-				}
-				
-				System.out.println(array);
+				Iterator iter = json_a.keys();
+				 while(iter.hasNext())
+				 {
+				   String key = (String)iter.next();
+				   
+				   String priceData = key + "\n Kshs: " + json_a.getString(key);
+				   array.add(priceData);
+				 }
+				 
 				new WhatToPlantFragment();
 				WhatToPlantFragment.newInstance(array);
 			} 
@@ -186,7 +179,6 @@ public class EditProfileDialogFragment extends DialogFragment
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(obj);
 		}
 	}
 }

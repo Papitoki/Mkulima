@@ -2,6 +2,8 @@ package com.mkulima.advisor;
 
 import java.util.ArrayList;
 
+import com.mkulima.advisor.model.SQLDatabase;
+
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -17,12 +19,18 @@ public class HomeActivity extends ActionBarActivity implements NavigationDrawerF
 
     //Used to store the last screen title. For use in {@link #restoreActionBar()}.
     private CharSequence mTitle;
+    
+    private SQLDatabase sqlDatabase; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        
+        //Dummy Data
+        sqlDatabase = new SQLDatabase(this);
+        sqlDatabase.saveProfileDetails("Rose", "Nairobi");
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -43,10 +51,9 @@ public class HomeActivity extends ActionBarActivity implements NavigationDrawerF
         	break;
         	
         case 1:
-        	ArrayList<String> empty = new ArrayList<String>();
-        	empty.add("No suggestions");
+        	//WhatToPlantFragment.prices.add("No suggestions");
         	getSupportFragmentManager().beginTransaction()
-            .replace(R.id.container, WhatToPlantFragment.newInstance(empty))
+            .replace(R.id.container, WhatToPlantFragment.newInstance(WhatToPlantFragment.prices))
             .commit();
         	break;
         	

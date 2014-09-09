@@ -52,7 +52,6 @@ public class ProfileFragment extends ListFragment
     	
     	Cursor dbCursorLocation = retrieveFromDB.readUserLocation();
     	farmerLocation = retrieveFromDB.obtainCursorDetails(dbCursorLocation).toString();
-    	System.out.println(farmerLocation);
     	
     	if(farmerName != null || !farmerName.equals("N/A"))
     	{

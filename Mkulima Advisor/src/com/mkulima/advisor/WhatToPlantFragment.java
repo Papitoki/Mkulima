@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 
 public class WhatToPlantFragment extends ListFragment 
 {
-	private static ArrayList<String> prices;
+	public static ArrayList<String> prices;
 	
     public static WhatToPlantFragment newInstance(ArrayList<String> data) 
     {
@@ -34,16 +34,14 @@ public class WhatToPlantFragment extends ListFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
     {
     	View rootView = inflater.inflate(R.layout.fragment_what_to_plant, container, false);
+    
     	
- 
-    	ArrayList<String> values = new ArrayList<String>();
-    	
-    	
-    	if(prices.isEmpty())
+    	if(prices == null)
     	{
     		
     	}
-    	else{
+    	else
+    	{
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
     	        android.R.layout.simple_list_item_1, prices);
     	 setListAdapter(adapter);
